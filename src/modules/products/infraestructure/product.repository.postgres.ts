@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
 import { Product } from '../domain/product.entity';
 import { ProductRepository } from '../domain/product.repository';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 
 @Injectable()
 export class ProductPostgresRepository implements ProductRepository {
@@ -19,13 +19,17 @@ export class ProductPostgresRepository implements ProductRepository {
     return this.repo.findOne({ where: { id } });
   }
 
-  async create(product: Product): Promise<Product> {
-    return this.repo.save(product);
+  create(data: Partial<Product>): Product {
+    return this.repo.create(data); // ✅ Accepts Partial<Product>
+  }
+
+  async save(product: Product): Promise<Product> {
+    return await this.repo.save(product);
   }
 
   async update(id: string, product: Partial<Product>): Promise<Product> {
     await this.repo.update(id, product);
-    return this.repo.findOne({ where: { id } });
+    return this.findById(id) as Promise<Product>; // ✅ Ensure product is returned
   }
 
   async delete(id: string): Promise<void> {

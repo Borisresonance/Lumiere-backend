@@ -20,7 +20,9 @@ export class ProductController {
   }
 
   @Post()
-  async create(@Body() body: { name: string; price: number; description?: string }) {
+  async create(
+    @Body() body: { name: string; price: number; description?: string },
+  ) {
     return this.createProductUseCase.execute(body);
   }
 }

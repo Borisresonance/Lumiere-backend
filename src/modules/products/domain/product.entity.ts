@@ -1,8 +1,16 @@
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+
+@Entity() // 👈 Marks it as a TypeORM entity
 export class Product {
-  constructor(
-    public id: string,
-    public name: string,
-    public price: number,
-    public description?: string,
-  ) {}
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
+
+  @Column()
+  name: string;
+
+  @Column('decimal')
+  price: number;
+
+  @Column({ nullable: true })
+  description?: string;
 }
