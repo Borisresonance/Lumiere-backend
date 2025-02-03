@@ -17,36 +17,8 @@ A **NestJS + TypeScript eCommerce API** built with **Hexagonal Architecture** fo
 
 ## 📂 Folder Structure (Hexagonal Architecture)
 ```
-/Lumiere-backend
-│── /src
-│   ├── /modules
-│   │   ├── /products                # 💡 Product Module (Feature)
-│   │   │   ├── /domain              # 🟠 Domain Layer (Entities, Interfaces)
-│   │   │   │   ├── product.entity.ts  # ✅ TypeORM Entity (Database Model)
-│   │   │   │   ├── product.repository.ts  # ✅ Repository Interface (Abstract)
-│   │   │   ├── /application         # 🟡 Application Layer (Services, DTOs, Use Cases)
-│   │   │   │   ├── product.service.ts  # ✅ Business Logic (Use Cases)
-│   │   │   │   ├── use-cases
-│   │   │   │   │   ├── create-product.use-case.ts  # ✅ Use Case for Creating Product
-│   │   │   │   │   ├── get-products.use-case.ts  # ✅ Use Case for Fetching Products
-│   │   │   │   ├── dto
-│   │   │   │   │   ├── create-product.dto.ts  # ✅ DTO for Validation
-│   │   │   ├── /infrastructure      # 🔵 Infrastructure Layer (Controllers, Repositories)
-│   │   │   │   ├── product.controller.ts  # ✅ API Endpoints (Handles HTTP Requests)
-│   │   │   │   ├── product.repository.postgres.ts  # ✅ TypeORM Repository Implementation
-│   │   │   ├── products.module.ts  # ✅ NestJS Module File (Registers Controllers & Services)
-│   ├── /common                      # ✨ Shared Utilities (Guards, Pipes, DTOs)
-│   ├── /config                      # ⚙️ Database & Environment Configs
-│   ├── /auth                        # 🔑 Authentication Module (JWT, OAuth)
-│   ├── /database                     # 🛢️ Database Configs & Migrations
-│   ├── main.ts                       # 🎯 Application Entry Point
-│── /prisma                           # 🔹 Prisma Migrations
-│   ├── schema.prisma                 # ✅ Prisma Schema
-│── .env                              # ✅ Environment Variables
-│── package.json
-│── tsconfig.json
-│── docker-compose.yml                # ✅ PostgreSQL Setup
-│── README.md                         # 📄 Project Documentation
+![image](https://github.com/user-attachments/assets/cdab0816-ab19-415a-8025-bc442f55ce79)
+
 
 
 
